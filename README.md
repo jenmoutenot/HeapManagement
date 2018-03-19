@@ -1,7 +1,7 @@
 # asn5 heapier
 
 ## Analysis
-In this assignment we will be exploring 3 different heap management options
+In this assignment we will be exploring 3 different heap management options.
 We will see which one is the most efficient by comparing CPU time and wall-clock time
 1. Spongebob 
 - All memory blocks should be the same size
@@ -14,7 +14,7 @@ We will see which one is the most efficient by comparing CPU time and wall-clock
 - Memory blocks that are manually built and are randomly sized, built using Java programming
 - Implicit heap manager: determines what parts of the memory are garbage, aka no longer accessible
 
-We will be using regular Heap Memory
+We will be using regular Heap Memory:
 From research: The heap is memory set aside for dynamic allocation. You can allocate a block and free it  at any time. This makes it much more complex to keep track of which parts of the heap are allocated or free at any given time; there are many custom heap allocators available to tune heap performance for different usage patterns.
 
 
