@@ -85,6 +85,7 @@ There will be 4 files:
 - The constant-size allocator can be any size
 
 3. allocator.h
+- Header file
 - Where you define the functions and their fields from allocator.c
 - For Spongebob's MYWAY
 
@@ -107,10 +108,11 @@ There will be 4 files:
 - Write all of Spongebob's 3 functions
 - a my_malloc() function, a my_free() function, and a function that checks if a piece of memory has been allocated or not 
 - Write code that tests to see if these are working correctly
-3. Create my allocator.h file
+3. Create my allocator.h header file
 - Holds the 3 functions and their fields from the allocator.c file for Spongebob
 - my_malloc(), my_free(), and the checker function
 4. Create the JavaWay.java file
+- Write a main function for Squidward's heap management option
 - In here, write functions for the implicit heap manager
 - Create an array called x and set it equal to a certain size
 - Make x = NULL when you want to free memory
