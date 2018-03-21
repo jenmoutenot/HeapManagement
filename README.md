@@ -70,7 +70,12 @@ There will be 4 files:
 - q = malloc(s2)
 - free(p)
 - malloc(s3) // this memory can only be reused when s3 is less than s1
-
+- Will also include the following pseudo code:
+- create and array of BLOCK_COUNT entries
+- for ITERATIONS iterations
+- pick a random block
+- if that block is allocated, free it
+- otherwise allocate BLOCK_SIZE bytes and assign it to the block
 - BLOCK_COUNT, ITERATIONS and BLOCK_SIZE will also be defined only in here
 
 2. allocator.c
@@ -92,6 +97,23 @@ There will be 4 files:
 - This creates an array of 100 integers
 
 ## Plateau Schedule
+1. Create my main.c file first 
+- Define BLOCK_COUNT, ITERATIONS, and BLOCK_SIZE here
+- Translate the pseudo code from the assignment handout into C 
+- Write out my #ifdef #else #define and #endif in order to interchange between Spongebob's MYWAY and Patrick's generic malloc() and free()
+- Write out the functions for Patrick...which should just include C's free() and malloc()
+- Write code that tests to see if these are working correctly
+2. Create my allocator.c file
+- Write all of Spongebob's 3 functions
+- a my_malloc() function, a my_free() function, and a function that checks if a piece of memory has been allocated or not 
+- Write code that tests to see if these are working correctly
+3. Create my allocator.h file
+- Holds the 3 functions and their fields from the allocator.c file for Spongebob
+- my_malloc(), my_free(), and the checker function
+4. Create the JavaWay.java file
+- In here, write functions for the implicit heap manager
+- Create an array called x and set it equal to a certain size
+- Make x = NULL when you want to free memory
 
 ## Empirical Investigation
 
