@@ -20,13 +20,33 @@ From research: The heap is memory set aside for dynamic allocation. You can allo
 
 ## Analysis Questions
 1. For Patrick, when you say his memory blocks are built in SEA, are we talking C programming? 
+-- yes
+
 2. Will the constant size allocator be a multiple of 8? But can be any size? What is a max size amount?
+-- unknown ... all you know is that all calls will request the same amount of memory
+
 3. So if a memory block was previously allocated, it is no longer accessible? Why is this? Is this only in Java?
+
+-- reread this
+-- Java uses an implicit heap manager that attempts to determine what, if any, of
+-- the memory that was previously allocated is no longer accessible, which is
+-- referred to as ``garbage''.
+
 4. Are we iterating just through the heap?
+-- no you are iterating the pseudo code given on the assignment
+
 5. How is a random memory block selected/ picked in the heap without user interface? Just need a random number generator?
+-- man random[3]
+
 6. Is Heap Memory linear in 366?
+-- yes, but i don't think you need to know this??
+
 7. Do we only need to write one main function that checks if a randomly selected memory block is allocated or not?
+-- yup ... your function implements the pseudo code on the assignment sheet
+
 8. Do we want to code and hand in the CPU time function and wall-clock time function? Or is that more for us to see which heap management option is the most efficient?
+-- no, no code needed for timing ... it is done in the makefile.
+-- yes to see which option is most efficient
 
 ## Design
 The design of my program is geared toward developing 3 different heap management options and understanding their influence.
