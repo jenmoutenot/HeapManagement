@@ -64,7 +64,7 @@ There will be 4 files:
 - And #else is for Patrick and the generic heap management option using malloc() and free() found in man 3 malloc 
 - This code will then help the main c file know when we are using Spongebob's heap management option or when we are using Patrick's, depending on whose is defined or not
 - Then if it is not defined, it will do regular C's free(p) and free up the memory, aka follow Patrick's heap management option. 
-- Also, will be preforming actions like this for Patrick:
+- Also, will be performing actions like this for Patrick:
 - getmem(10) // gets the amount of memory
 - p = malloc(s1)
 - q = malloc(s2)
@@ -79,7 +79,7 @@ There will be 4 files:
 - BLOCK_COUNT, ITERATIONS and BLOCK_SIZE will also be defined only in here
 
 2. allocator.c
-- Where you write the functions for the constant size allocator 
+- Where [i will] write the functions for the constant size allocator 
 - This is for Spongebob's MYWAY
 - All memory blocks should be the same size
 - The constant-size allocator can be any size
@@ -94,8 +94,11 @@ There will be 4 files:
 - The following pseudocode will be implemented for Squidward's heap management option:
 - Integer[] x = new Integer[100]
 - x = NULL
-
 - This creates an array of 100 integers
+
+
+-- good work on the design!!
+
 
 ## Plateau Schedule
 1. Create my main.c file first 
@@ -104,13 +107,17 @@ There will be 4 files:
 - Write out my #ifdef #else #define and #endif in order to interchange between Spongebob's MYWAY and Patrick's generic malloc() and free()
 - Write out the functions for Patrick...which should just include C's free() and malloc()
 - Write code that tests to see if these are working correctly
+-- good!
+
 2. Create my allocator.c file
 - Write all of Spongebob's 3 functions
+-- make this three septate (testable) steps
 - a my_malloc() function, a my_free() function, and a function that checks if a piece of memory has been allocated or not 
 - Write code that tests to see if these are working correctly
 3. Create my allocator.h header file
 - Holds the 3 functions and their fields from the allocator.c file for Spongebob
 - my_malloc(), my_free(), and the checker function
+-- do this in concert with step 2
 4. Create the JavaWay.java file
 - Write a main function for Squidward's heap management option
 - In here, write functions for the implicit heap manager
