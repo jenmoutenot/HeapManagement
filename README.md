@@ -71,7 +71,7 @@ There will be 4 files:
 - free(p)
 - malloc(s3) // this memory can only be reused when s3 is less than s1
 
--BLOCK_COUNT, ITERATIONS and BLOCK_SIZE will also be defined only in here
+- BLOCK_COUNT, ITERATIONS and BLOCK_SIZE will also be defined only in here
 
 2. allocator.c
 - Where you write the functions for the constant size allocator 
