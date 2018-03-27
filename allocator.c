@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stddef.h>
+#include <stdio.h>
+#include <stddef.h>
 #include "allocator.h"
 
 
@@ -74,9 +74,3 @@ void MyFree(void* ptr){
  }
  else printf("Please provide a valid pointer allocated by MyMalloc\n");
 }
-
-
-
-
-
-
