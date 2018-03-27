@@ -6,6 +6,14 @@
 //#include "allocator.h"
 #include "allocator.c"
 
+//#ifdef MYWAY
+//#define freemem(p) my_free(p)  //freemem = alias name
+//#define mallocmem(p) my_malloc(p)
+//#else
+//#define freemem(p) free(p)
+//#define mallocmem(p) malloc(p)
+//#endif
+
 int main()
 {
  //Create an array of BLOCK_COUNT ENTRIES
