@@ -1,11 +1,12 @@
-//#ifdef MYWAY
-//#define freemem(p) my_free(p)  //freemem = alias name
-//#else
-//#define freemem(p) free(p)
-//#endif
+// This is my code
+// Jen Moutenot
+// CS 366
 
 #include<stdio.h>
 #include<stddef.h>
+
+#ifndef MYWAY
+#define MYWAY
 
 char memory[20000];
 
