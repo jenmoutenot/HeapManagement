@@ -15,7 +15,7 @@ void initialize()
  freeList->next=NULL;
 }
 
-void *MyMalloc(size_t noOfBytes)
+void *my_malloc(int noOfBytes)
 {
   struct block *curr,*prev;
   void *result;
@@ -48,7 +48,7 @@ void *MyMalloc(size_t noOfBytes)
   }
 }
 
-void MyFree(void* ptr)
+void my_free(void* ptr)
 {
   if(((void*)memory<=ptr)&&(ptr<=(void*)(memory+20000)))
   {
