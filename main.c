@@ -6,6 +6,7 @@
 //#include "allocator.h"
 #include "allocator.c"
 
+
 //#ifdef MYWAY
 //#define freemem(p) my_free(p)  //freemem = alias name
 //#define mallocmem(p) my_malloc(p)
@@ -13,6 +14,10 @@
 //#define freemem(p) free(p)
 //#define mallocmem(p) malloc(p)
 //#endif
+
+#define BLOCK_COUNT 10
+#define BLOCK_SIZE 8
+//#define ITERATIONS ?
 
 int main()
 {
