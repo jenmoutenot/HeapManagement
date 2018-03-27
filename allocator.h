@@ -1,8 +1,25 @@
-#ifdef MYWAY
-#define freemem(p) my_free(p)  //freemem = alias name
-#else
-#define freemem(p) free(p)
-#endif
+//#ifdef MYWAY
+//#define freemem(p) my_free(p)  //freemem = alias name
+//#else
+//#define freemem(p) free(p)
+//#endif
 
-//function declarations here...maybe more
-int my_free(p);
+#include<stdio.h>
+#include<stddef.h>
+
+char memory[20000];
+
+struct block{
+ size_t size;
+ int free;
+ struct block *next;
+};
+
+struct block *freeList=(void*)memory;
+
+void initialize();
+void split(struct block *fitting_slot,size_t size);
+void *MyMalloc(size_t noOfBytes);
+void merge();
+void MyFree(void* ptr);
+
