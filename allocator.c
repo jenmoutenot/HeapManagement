@@ -1,3 +1,7 @@
+// This is my code
+// Jen Moutenot
+// CS 366
+
 #include <stdio.h>
 #include <stddef.h>
 #include "allocator.h"
