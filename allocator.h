@@ -5,8 +5,8 @@
 #include<stdio.h>
 #include<stddef.h>
 
-#ifndef MYWAY
-#define MYWAY
+//#ifndef MYWAY
+//#define MYWAY
 
 char memory[20000];
 
