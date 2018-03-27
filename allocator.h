@@ -16,10 +16,10 @@ struct block{
  struct block *next;
 };
 
-struct block *freeList=(void*)memory;
+//struct block *freeList=(void*)memory;
 
 void initialize();
-void split(struct block *fitting_slot,size_t size);
+//void split(struct block *fitting_slot,size_t size);
 void *MyMalloc(size_t noOfBytes);
-void merge();
+//void merge();
 void MyFree(void* ptr);
