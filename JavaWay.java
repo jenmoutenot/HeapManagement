@@ -9,20 +9,19 @@ import java.util.Random;
 public class JavaWay
 {
 
-  ...//write allocator function
-     //
+  
   /* purpose:
    * input:
    * returns:
    */
-  public void allocator()
-  {
-    int [] x = new int [100];
+ // public void allocator()
+ // {
+   // int [] x = new int [100];
     //for ITERATIONS iterations
      //pick a random bock- rand.nextInt() % 100 
      //if the block is allocated, free it
      //otherwise allocate that specific block by setting the array index to a new int 
-  }
+ // }
 
   /* purpose: run the experiment timing the random allocation and
    *          deallocation of blocks of memory.
@@ -32,7 +31,7 @@ public class JavaWay
   public void runit()
   {
     Random rand = new Random();
-    ...
+ 
   }
   
   public static void main(String [] args)
