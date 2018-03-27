@@ -1,6 +1,11 @@
+// This is my code
+// Jen Moutenot
+// CS 366
+
 #include "stdio.h"
 //#include "allocator.h"
 #include "allocator.c"
+
 int main()
 {
  //Create an array of BLOCK_COUNT ENTRIES
