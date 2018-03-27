@@ -23,19 +23,18 @@ int main()
   struct block list_array[BLOCK_COUNT];
   srand(time(NULL));
   for (int i = 0; i < ITERATIONS; i++)
-    {
+  {
       int num = rand() % BLOCK_COUNT;
       printf("%i\n", num);
-      if(list_array[num].free == 1)
-      {
-         free(*list_array[num]); 
-      }
-      else
-      {
-        //struct 
+      if(list_array[num].free == 1);
+     // {
+       // free(list_array[num]); 
+     // }
+     // else
+     // { 
         //blocks *b = (blocks *) malloc(sizeof(BLOCK_SIZE));
-      }
-    }   
+     // }
+  }   
   return 0;
 
 }
