@@ -7,7 +7,11 @@
 #include "allocator.h"
 
 struct block *freeList=(void*)memory;
-
+/* purpose: run the experiment timing the random allocation and
+ *          deallocation of blocks of memory.
+ * input:   nothing
+ * returns: nothing
+ */
 void initialize()
 {
  freeList->size=20000-sizeof(struct block);
@@ -15,7 +19,12 @@ void initialize()
  freeList->next=NULL;
 }
 
-void *my_malloc(int noOfBytes)
+/* purpose: run the experiment timing the random allocation and
+ *          deallocation of blocks of memory.
+ * input:   nothing
+ * returns: nothing
+ */
+void *get_mem(int noOfBytes)
 {
   struct block *curr,*prev;
   void *result;
@@ -48,6 +57,11 @@ void *my_malloc(int noOfBytes)
   }
 }
 
+/* purpose: run the experiment timing the random allocation and
+ *          deallocation of blocks of memory.
+ * input:   nothing
+ * returns: nothing
+ */
 void my_free(void* ptr)
 {
   if(((void*)memory<=ptr)&&(ptr<=(void*)(memory+20000)))
