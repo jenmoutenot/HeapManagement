@@ -6,6 +6,10 @@
 #include "allocator.h"
 #include "malloc.h"
 
+#define BLOCK_COUNT 20000000
+#define BLOCK_SIZE 8
+#define ITERATIONS 200000000
+
 //#ifdef MYWAY
 //#define freemem(p) my_free(p)  //freemem = alias name
 //#define mallocmem(p) my_malloc(p)
@@ -13,10 +17,6 @@
 //#define freemem(p) free(p)
 //#define mallocmem(p) malloc(p)
 //#endif
-
-#define BLOCK_COUNT 20
-#define BLOCK_SIZE 8
-#define ITERATIONS 20
 
 int main()
 {
@@ -26,14 +26,14 @@ int main()
   {
       int num = rand() % BLOCK_COUNT;
       printf("%i\n", num);
-      if(list_array[num].free == 1);
-     // {
-       // free(list_array[num]); 
-     // }
-     // else
-     // { 
-        //blocks *b = (blocks *) malloc(sizeof(BLOCK_SIZE));
-     // }
+      if(list_array[num] == NULL);
+      {
+        get_mem(); 
+      }
+      else
+      { 
+        my_free();
+      }
   }   
   return 0;
 
