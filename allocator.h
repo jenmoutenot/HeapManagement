@@ -19,8 +19,8 @@ struct block{
 //struct block *freeList=(void*)memory;
 
 void initialize();
-void *my_malloc(int noOfBytes);
-void merge();
+void *get_mem(int noOfBytes);
+//void merge();
 void my_free(void* ptr);
 
 #endif
