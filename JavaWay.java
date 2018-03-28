@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class JavaWay
 {
-  private static final int BLOCK_COUNT = 20;
+  private static final int BLOCK_COUNT = 20000000;
   private static final int BLOCK_SIZE = 8;
-  private static final int ITERATIONS = 20;  
+  private static final int ITERATIONS = 200000000;  
  
   /* purpose: run the experiment timing the random allocation and
    *          deallocation of blocks of memory.
