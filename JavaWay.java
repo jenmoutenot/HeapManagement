@@ -1,28 +1,14 @@
+// This is my code
+// Jen Moutenot
+// CS 366
 import java.util.Random;
-
-// To use class Random.  Once do
-//   Random rand = new Random();
-// than to create a random number between 0 and N call
-//   int x = rand.nextInt(N);
-
 
 public class JavaWay
 {
-
-  
-  /* purpose:
-   * input:
-   * returns:
-   */
- // public void allocator()
- // {
-   // int [] x = new int [100];
-    //for ITERATIONS iterations
-     //pick a random bock- rand.nextInt() % 100 
-     //if the block is allocated, free it
-     //otherwise allocate that specific block by setting the array index to a new int 
- // }
-
+  private static final int ITERATIONS = 
+  private static final int BLOCK_SIZE =
+  private static final int BLOCK_COUNT =   
+ 
   /* purpose: run the experiment timing the random allocation and
    *          deallocation of blocks of memory.
    * input:   nothing
@@ -31,12 +17,16 @@ public class JavaWay
   public void runit()
   {
     Random rand = new Random();
- 
-  }
+    Integer[] list_array = new Integer[BLOCK_SIZE];
+    for (int i = 0; i< ITERATIONS; i++)
+    {
+      int x = rand.nextInt(BLOCK_COUNT)
+    }
   
   public static void main(String [] args)
   {
     JavaWay test = new JavaWay();
     test.runit();
   }
+
 }
