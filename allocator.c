@@ -2,8 +2,9 @@
 // Jen Moutenot
 // CS 366
 
-#include <stdio.h>
-#include <stddef.h>
+#include "stdio.h"
+#include "memwatch.h"
+#include "stddef.h"
 #include "allocator.h"
 
 struct block *freeList=(void*)memory;
