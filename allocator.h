@@ -8,7 +8,7 @@
 #ifdef MYWAY
 #define get_mem  my_alloc
 #define free_mem my_free
-#define BLOCK_SIZE 10
+#define BLOCK_SIZE 8
 #endif
 
 #ifndef MYWAY
