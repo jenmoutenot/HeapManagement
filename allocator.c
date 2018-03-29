@@ -7,6 +7,7 @@
 #include "allocator.h"
 
 struct block *freeList=(void*)memory;
+
 /* purpose: run the experiment timing the random allocation and
  *          deallocation of blocks of memory.
  * input:   nothing
@@ -24,7 +25,7 @@ void initialize()
  * input:   nothing
  * returns: nothing
  */
-void *get_mem(int noOfBytes)
+void *my_alloc(int noOfBytes)
 {
   struct block *curr,*prev;
   void *result;
