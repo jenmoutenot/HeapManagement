@@ -4,7 +4,7 @@
 
 #include "stdio.h"
 #include "allocator.h"
-#include "malloc.h"
+#include "memwatch.h"
 
 #define BLOCK_COUNT 20000000
 #define BLOCK_SIZE 8
@@ -12,13 +12,13 @@
 
 int main()
 {
-  struct tHeap sBlock[BLOCK_COUNT];
+  struct sHeap sBlock[BLOCK_COUNT];
   srand(time(NULL));
   for (int i = 0; i < ITERATIONS; i++)
   {
       int num = rand() % BLOCK_COUNT;
       printf("%i\n", num);
-      if(sBlock[num] == NULL);
+      if(sBlock[num] == NULL)
       {
         get_mem(); 
       }
