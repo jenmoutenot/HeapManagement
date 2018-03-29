@@ -22,8 +22,8 @@ char memory[20000];
 struct sHeap{
   int size;
   int free;
-  struct block *next;
-} blocks;
+  struct sHeap *next;
+} tHeap;
 
 //struct block *freeList=(void*)memory;
 
