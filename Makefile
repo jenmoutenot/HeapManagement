@@ -1,6 +1,6 @@
 CC = gcc
 # pick on of the following
-MEMWATCH = 
+MEMWATCH = -DMEMWATCH -DMW_STDIO 
 # MEMWATCH = -DMEMWATCH -DMW_STDIO
 CFLAGS = -O4 -Wall -g $(MEMWATCH)
 TIME_FORMAT = "max resident memory %M, times: user %U elapse %e, context switches %c" 
@@ -8,21 +8,21 @@ TIME_FORMAT = "max resident memory %M, times: user %U elapse %e, context switche
 JAVA = java
 JAVAC = javac
 
-all: malloc_way my_way JavaWay.class MyJavaWay.class
+all: malloc_way my_way JavaWay.class
 
-my_way:	main_my_way.o memwatch.o allocator.o
+my_way:	main_my_way.o memwatch.o allocator.o memwatch.o
 	$(CC) $(CFLAGS) -o my_way main_my_way.o memwatch.o allocator.o
 
 malloc_way:	main_malloc_way.o memwatch.o
 	$(CC) $(CFLAGS) -o malloc_way main_malloc_way.o memwatch.o
 
-main_malloc_way.o: main.c memwatch.h
+main_malloc_way.o: main.c memwatch.o
 	$(CC) $(CFLAGS) -c main.c -o main_malloc_way.o
 
-main_my_way.o: main.c memwatch.h allocator.h
+main_my_way.o: main.c memwatch.o allocator.h
 	$(CC) $(CFLAGS) -DMYWAY -c main.c -o main_my_way.o
 
-allocator.o.o: allocator.c memwatch.h allocator.h
+allocator.o.o: allocator.c memwatch.o allocator.h
 	$(CC) $(CFLAGS) -DMYWAY -c allocator.c -o allocator.o
 
 memwatch.o: memwatch.c memwatch.h 
@@ -30,9 +30,6 @@ memwatch.o: memwatch.c memwatch.h
 
 JavaWay.class: JavaWay.java
 	$(JAVAC) JavaWay.java
-
-MyJavaWay.class: MyJavaWay.java
-	$(JAVAC) MyJavaWay.java
 
 memwatch.c:
 	ln -s /home/class_projects/memwatch-2.71/memwatch.c
@@ -52,12 +49,10 @@ test: all
 	-@/usr/bin/time -f $(TIME_FORMAT)  my_way
 	-@echo -n "JavaWay    "
 	-@/usr/bin/time -f $(TIME_FORMAT)  $(JAVA) JavaWay
-	-@echo -n "mMyJavaWay "
-	-@/usr/bin/time -f $(TIME_FORMAT)  $(JAVA) MyJavaWay
-	# tail -n 4 memwatch.log
+	tail -n 4 memwatch.log
 
 .PHONY: print
 print:
 	@ a2ps --delegate=no -T 4 -q -Avirtual -2 -L72 -o src.ps main.c \
-           allocator.c MyJavaWay.java JavaWay.java Makefile
+           allocator.c JavaWay.java Makefile
 	@ echo "output in src.ps"
