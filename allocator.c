@@ -7,7 +7,7 @@
 #include "stddef.h"
 #include "allocator.h"
 
-struct sHeap *empty_list=(void*)memory;
+struct sHeap *empty_list= void* memory;
 
 /* purpose: initializes the linked list's memory block
  *          and sets a free flag to 1 
@@ -41,11 +41,11 @@ void *my_alloc(int size)
   if((block->memory) == size)
   {
     block->flag = 0;
-    new_block = (void*)(++block);
+    new_block = void* ++block;
   }
   else((block->memory) > (size + sizeof(struct sHeap)))
   {
-    new_block = (void*)(++block);
+    new_block = void* ++block;
   }
   new_block = NULL;
   return new_block;
@@ -61,7 +61,7 @@ void *my_alloc(int size)
  */
 void my_free(void* block1)
 {
-  if((block1 <= (void*)(memory + 10000000)))
+  if(block1 <= void* memory)
   {
     struct sHeap* block = block1;
     --block;
