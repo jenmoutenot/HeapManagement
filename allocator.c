@@ -10,6 +10,7 @@
 struct sHeap *empty_list=(void*)memory;
 
 /* purpose: initializes the linked list's memory block
+ *          and sets a free flag to 1 
  * input:   nothing
  * returns: nothing
  */
@@ -20,55 +21,53 @@ void initialize()
  empty_list->next = NULL;
 }
 
-/* purpose: allocates memory by
- * input:   nothing
+/* purpose: allocates memory by obtaining the starting address
+ *          of the allocated block of memory
+ * input:   size of the memory block
  * returns: nothing
  */
-void *my_alloc(int noOfBytes)
+void *my_alloc(int size)
 {
   struct sHeap *block;
   struct sHeap *previous; 
-  void *result;
-  if(!(empty_list->memory))
-  {
-    initialize();
-  }
+  void *new_block;
   block = empty_list;
-  while((((block->memory) < noOfBytes) || ((block->flag)==0)) && (block->next != NULL))
+
+  while(((block->flag) == 0) && (block->next != NULL))
   {
     previous = block;
     block = block->next;
   }
-  if((block->memory) == noOfBytes)
+  if((block->memory) == size)
   {
-    block->flag=0;
-    result=(void*)(++block);
-    return result;
+    block->flag = 0;
+    new_block = (void*)(++block);
+    return new_block;
   }
-  else if((block->memory)>(noOfBytes + sizeof(struct sHeap)))
+  else((block->memory) > (size + sizeof(struct sHeap)))
   {
-    result=(void*)(++block);
-    return result;
+    new_block = (void*)(++block);
+    return new_block;
   }
-  else
-  {
-    result=NULL;
-    return result;
+  new_block = NULL;
+  return new_block;
   }
 }
 
-/* purpose: run the experiment timing the random allocation and
- *          deallocation of blocks of memory.
- * input:   nothing
+/* purpose: frees memory if a block is not allocated.
+ *          If the starting address of the memory block lies
+ *          within the range of the memory list, then set a free
+ *          flag to 1 and iterate through
+ * input:   a pointer
  * returns: nothing
  */
-void my_free(void* ptr)
+void my_free(void* block1)
 {
-  if(((void*)memory <= ptr) && (ptr <= (void*)(memory+20000)))
+  if((block1 <= (void*)(memory + 10000)))
   {
-    struct sHeap* block = ptr;
+    struct sHeap* block = block1;
     --block;
-    block->flag=1;
+    block->flag = 1;
   }
 }
 
