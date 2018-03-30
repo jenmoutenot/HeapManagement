@@ -7,7 +7,7 @@
 #include "stddef.h"
 #include "allocator.h"
 
-struct sHeap *initial=(void*)memory;
+struct sHeap *empty_list=(void*)memory;
 
 /* purpose: initializes the linked list's memory block
  * input:   nothing
@@ -15,39 +15,39 @@ struct sHeap *initial=(void*)memory;
  */
 void initialize()
 {
- initial->size=20000-sizeof(struct sHeap);
- initial->free=1;
- initial->next=NULL;
+ empty_list->memory = sizeof(struct sHeap);
+ empty_list->flag = 1; 
+ empty_list->next = NULL;
 }
 
-/* purpose: run the experiment timing the random allocation and
- *          deallocation of blocks of memory.
+/* purpose: allocates memory by
  * input:   nothing
  * returns: nothing
  */
 void *my_alloc(int noOfBytes)
 {
-  struct sHeap *curr,*prev;
+  struct sHeap *block;
+  struct sHeap *previous; 
   void *result;
-  if(!(initial->size))
+  if(!(empty_list->memory))
   {
     initialize();
   }
-  curr=initial;
-  while((((curr->size)<noOfBytes)||((curr->free)==0))&&(curr->next!=NULL))
+  block = empty_list;
+  while((((block->memory) < noOfBytes) || ((block->flag)==0)) && (block->next != NULL))
   {
-    prev=curr;
-    curr=curr->next;
+    previous = block;
+    block = block->next;
   }
-  if((curr->size)==noOfBytes)
+  if((block->memory) == noOfBytes)
   {
-    curr->free=0;
-    result=(void*)(++curr);
+    block->flag=0;
+    result=(void*)(++block);
     return result;
   }
-  else if((curr->size)>(noOfBytes+sizeof(struct sHeap)))
+  else if((block->memory)>(noOfBytes + sizeof(struct sHeap)))
   {
-    result=(void*)(++curr);
+    result=(void*)(++block);
     return result;
   }
   else
@@ -64,13 +64,11 @@ void *my_alloc(int noOfBytes)
  */
 void my_free(void* ptr)
 {
-  if(((void*)memory<=ptr)&&(ptr<=(void*)(memory+20000)))
+  if(((void*)memory <= ptr) && (ptr <= (void*)(memory+20000)))
   {
-    struct sHeap* curr=ptr;
-    --curr;
-    curr->free=1;
-    //merge();
+    struct sHeap* block = ptr;
+    --block;
+    block->flag=1;
   }
-  else printf("Please provide a valid pointer allocated by MyMalloc\n");
 }
 
