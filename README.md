@@ -124,15 +124,14 @@ There will be 4 files:
 - Create an array called x and set it equal to a certain size
 - Make x = NULL when you want to free memory
 
+5. Edit the makefile to try and run a memwatch.log
+
 ## Empirical Investigation
 
-[[ each of my programs prints out
-  @@ block_count ... iterations ... block size ..., 
-and then let's /usr/bin/time print
-  max resident memory ..., times: user ... elapse ..., context switches ....
-see the Makefile for the command line options I used with /usr/bin/time .
-(once you grok, you can delete this comment.) ]]
-
-
-
-
+1. Although my code does not run, it did run at some point and produced the output:
+- malloc_way: max resident memory 1392, times: user 0.00 elapse 0.00, context switches 3
+- my_way: max resident memwory 1336, times: user 0.00 elapse 0.17, context switches 3
+- JavaWay: max resident memory 35896, times: user 0.08 elapse 0.14, context switches 6
+- This output tells the user that my_way is actually the most efficient out of the 3 heap management optins.
+- Futhermore, C's programming heap management methods are more efficient than Java's.
+- Therefore, the garbage collector option is the worst option, and it is much better to either go with a constant-size allocator or to go with C's regular malloc() and free() functions, since they are so close in efficiency. 
