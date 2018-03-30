@@ -128,10 +128,11 @@ There will be 4 files:
 
 ## Empirical Investigation
 
-1. Although my code does not run (do to 2 errors in my memwatch.h file), it did run at some point and produced the output:
+1. Although my code does not run (due to 2 errors in my memwatch.h file), it did run at some point and produced the output:
 - malloc_way: max resident memory 1392, times: user 0.00 elapse 0.00, context switches 3
 - my_way: max resident memwory 1336, times: user 0.00 elapse 0.17, context switches 3
 - JavaWay: max resident memory 35896, times: user 0.08 elapse 0.14, context switches 6
 - This output tells the user that my_way is actually the most efficient out of the 3 heap management optins.
+- C's is better because you would use the heap if you don't know exactly how much data you will need in runtime or if you need to allocate a lot of data. 
 - Futhermore, C's programming heap management methods are more efficient than Java's.
 - Therefore, the garbage collector option is the worst option, and it is much better to either go with a constant-size allocator or to go with C's regular malloc() and free() functions, since they are so close in efficiency. 
