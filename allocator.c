@@ -7,7 +7,7 @@
 #include "stddef.h"
 #include "allocator.h"
 
-struct sHeap *empty_list= void* memory;
+struct sHeap *empty_list = void* memory;
 
 /* purpose: initializes the linked list's memory block
  *          and sets a free flag to 1 
