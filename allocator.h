@@ -4,10 +4,9 @@
 
 #include "stdio.h"
 #include "stddef.h"
-#include "memwatch.h"
 
 #ifdef MYWAY
-#define get_mem()  my_alloc()
+#define get_mem() my_alloc()
 #define free_mem() my_free()
 #define BLOCK_SIZE 8
 #endif
@@ -26,9 +25,7 @@ struct sHeap{
   struct sHeap *next;
 };
 
-//struct block *freeList=(void*)memory;
-
 void initialize();
-void *get_mem(int noOfBytes);
+void *get_mem();
 //void merge();
 void my_free(void* ptr);
