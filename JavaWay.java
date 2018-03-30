@@ -1,6 +1,7 @@
 // This is my code
 // Jen Moutenot
 // CS 366
+
 import java.util.Random;
 
 public class JavaWay
@@ -36,5 +37,4 @@ public class JavaWay
     JavaWay test = new JavaWay();
     test.runit();
   }
-
 }
