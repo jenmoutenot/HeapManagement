@@ -6,9 +6,9 @@
 #include "allocator.h"
 #include "memwatch.h"
 
-#define BLOCK_COUNT 20000000
+#define BLOCK_COUNT 10000000
 #define BLOCK_SIZE 8
-#define ITERATIONS 200000000
+#define ITERATIONS 100000000
 
 int main()
 {
@@ -17,7 +17,7 @@ int main()
   for (int i = 0; i < ITERATIONS; i++)
   {
       int num = rand() % BLOCK_COUNT;
-      if(sBlock[num] = NULL)
+      if(sBlock[num] == NULL)
       {
         get_mem(); 
       }
