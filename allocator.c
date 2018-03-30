@@ -7,18 +7,17 @@
 #include "stddef.h"
 #include "allocator.h"
 
-struct block *freeList=(void*)memory;
+struct sHeap *initial=(void*)memory;
 
-/* purpose: run the experiment timing the random allocation and
- *          deallocation of blocks of memory.
+/* purpose: initializes the linked list's memory block
  * input:   nothing
  * returns: nothing
  */
 void initialize()
 {
- freeList->size=20000-sizeof(struct block);
- freeList->free=1;
- freeList->next=NULL;
+ initial->size=20000-sizeof(struct sHeap);
+ initial->free=1;
+ initial->next=NULL;
 }
 
 /* purpose: run the experiment timing the random allocation and
@@ -28,13 +27,13 @@ void initialize()
  */
 void *my_alloc(int noOfBytes)
 {
-  struct block *curr,*prev;
+  struct sHeap *curr,*prev;
   void *result;
-  if(!(freeList->size))
+  if(!(initial->size))
   {
     initialize();
   }
-  curr=freeList;
+  curr=initial;
   while((((curr->size)<noOfBytes)||((curr->free)==0))&&(curr->next!=NULL))
   {
     prev=curr;
@@ -46,9 +45,8 @@ void *my_alloc(int noOfBytes)
     result=(void*)(++curr);
     return result;
   }
-  else if((curr->size)>(noOfBytes+sizeof(struct block)))
+  else if((curr->size)>(noOfBytes+sizeof(struct sHeap)))
   {
-    //split(curr,noOfBytes);
     result=(void*)(++curr);
     return result;
   }
@@ -68,7 +66,7 @@ void my_free(void* ptr)
 {
   if(((void*)memory<=ptr)&&(ptr<=(void*)(memory+20000)))
   {
-    struct block* curr=ptr;
+    struct sHeap* curr=ptr;
     --curr;
     curr->free=1;
     //merge();
