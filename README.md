@@ -128,7 +128,7 @@ There will be 4 files:
 
 ## Empirical Investigation
 
-1. Although my code does not run, it did run at some point and produced the output:
+1. Although my code does not run (do to 2 errors in my memwatch.h file), it did run at some point and produced the output:
 - malloc_way: max resident memory 1392, times: user 0.00 elapse 0.00, context switches 3
 - my_way: max resident memwory 1336, times: user 0.00 elapse 0.17, context switches 3
 - JavaWay: max resident memory 35896, times: user 0.08 elapse 0.14, context switches 6
