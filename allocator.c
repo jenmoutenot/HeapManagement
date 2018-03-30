@@ -63,7 +63,7 @@ void *my_alloc(int size)
  */
 void my_free(void* block1)
 {
-  if((block1 <= (void*)(memory + 10000)))
+  if((block1 <= (void*)(memory + 10000000)))
   {
     struct sHeap* block = block1;
     --block;
