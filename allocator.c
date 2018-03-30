@@ -42,12 +42,10 @@ void *my_alloc(int size)
   {
     block->flag = 0;
     new_block = (void*)(++block);
-    return new_block;
   }
   else((block->memory) > (size + sizeof(struct sHeap)))
   {
     new_block = (void*)(++block);
-    return new_block;
   }
   new_block = NULL;
   return new_block;
