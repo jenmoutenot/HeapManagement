@@ -17,8 +17,6 @@
 #define BLOCK_SIZE sizeof(struct sBlock)
 #endif
 
-char memory[20000];
-
 struct sHeap{
   int size;
   int free;
@@ -26,6 +24,5 @@ struct sHeap{
 };
 
 void initialize();
-void *get_mem();
-//void merge();
-void my_free(void* ptr);
+void *my_alloc(int size);
+void my_free(void* block1);
