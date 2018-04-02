@@ -1,40 +1,64 @@
 // This is my code
 // Jen Moutenot
 // CS 366
+// Courtesy of Dr. Binkley
+
+// allocation challenge!  assuming that only blocks of a fixed size are
+// allocated, test how java's heap manager "stacks" up.
 
 import java.util.Random;
 
 public class JavaWay
 {
-  private static final int BLOCK_COUNT = 20000000;
-  private static final int BLOCK_SIZE = 8;
-  private static final int ITERATIONS = 200000000;  
- 
-  /* purpose: creates an array of all the memory blocks and loops through
-   *          all the blocks. If free, allocates. If allocated, frees it.
-   * input:   nothing
+  final static int BLOCK_COUNT = 100000;
+  final static int ITERATIONS = (300*1000*1000/1000);
+  final static int BLOCK_SIZE = 4096;
+
+  /* purpose: run the experiment timing the random allocation and 
+   *          deallocation of blocks of memory.
+   * input:   nothing 
    * returns: nothing
    */
   public void runit()
   {
     Random rand = new Random();
-    Integer[] list_array = new Integer[BLOCK_SIZE];
-    for (int i = 0; i< ITERATIONS; i++)
+    Byte [][] blocks = new Byte[BLOCK_COUNT][];
+
+    int i;
+    for(i=0; i<BLOCK_COUNT; i++)
+      blocks[i] = null;
+  
+    for(i=0; i<ITERATIONS; i++)
     {
-      int num = rand.nextInt(BLOCK_COUNT);
-      if(list_array[num] == null)
+      int b = rand.nextInt(BLOCK_COUNT);
+      if (blocks[b] == null)
       {
-        list_array = new Integer[BLOCK_SIZE];
+        blocks[b] = new Byte[BLOCK_SIZE];
+        if (blocks[b] == null)
+        {
+          System.out.println("new returned null at iteration " + i +" ... bye");
+          System.exit(-1);
+        }
       }
       else
       {
-        list_array[num] = null;
-      } 
+        blocks[b] = null;
+      }
     }
+  
+    for(i=0; i<BLOCK_COUNT; i++)   
+      if (blocks[i] != null)       
+        blocks[i] = null;          // "free" all (allocated) blocks 
+
   }
+  
   public static void main(String [] args)
   {
+    System.out.print("@@ block_count " + BLOCK_COUNT + " iterations " +
+                     ITERATIONS + " block size " + BLOCK_SIZE + " ");
     JavaWay test = new JavaWay();
     test.runit();
+    System.exit(0);
   }
 }
+
