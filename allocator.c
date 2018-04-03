@@ -26,7 +26,7 @@ void initialize()
  * input:   size of the memory block
  * returns: nothing
  */
-void *my_alloc(int size)
+void *my_malloc(int size)
 {
   struct sHeap *block;
   struct sHeap *previous; 
