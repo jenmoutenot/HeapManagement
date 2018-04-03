@@ -1,0 +1,56 @@
+
+Prologue
+
+your repo now includes some of my code.  *don't* just make use of it.
+as you did before, type it in.   make use of the slow reading this 
+forces and the path from eyes to fingers through brain! to grok my code.
+
+
+Phase 1a
+
+make sure your output from the two programs of phase 1 looks like this:
+
+$ java JavaWay    
+@@ block_count 100000 iterations 300000 block size 4096 max resident memory 2277184, times: user 13.69 elapse 2.13, context switches 3368
+
+$ malloc_way 
+@@ block_count 100000 iterations 300000000 block size 4096, max resident memory 205360, times: user 17.96 elapse 18.52, context switches 26
+
+
+
+
+
+Phase 2 
+
+phase 2 is to implement malloc_way within the framework of the assignment.
+basically within the #defines that are used my the makefile.
+
+#ifdef MYWAY
+#define get_mem(x,A) my_malloc(x, A)
+#define free_mem(x,A) my_free(x, A)
+#else 
+#define get_mem(x,A) malloc(x)
+#define free_mem(x,A) free(x)
+#endif
+
+provided that MYWAY is not defined your code should do the same thing as
+stepping-stone.c (including producing the output above).
+
+
+
+Phase 3
+
+phase 3 is to implement allocator.c (and allocator.h).  
+while i don't really care what data structure you use, i will note that
+most of the initial attempts used far more complicated data structures 
+than required.  i, for example, used a stack of freed addresses implemented 
+using an array.
+
+you might break this down further where phase 3a would allocate a fixed size
+stack and die (gracefully) if the stack size is exceeded, while phase 3b would
+reallocate the stack to be, say twice its present size.
+
+and step by step
+- dave
+
+
