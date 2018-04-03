@@ -8,7 +8,37 @@
 // As Java's heap manager stacks up, it loops though iterations
 // and picks a random block.
 
-// This is my code
+/rning: push.default is unset; its implicit value has changed in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the traditional behavior, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+Since Git 2.0, Git defaults to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+X11 forwarding request failed on channel 0
+To git@github.com:LoyolaCS366SP18/heapier-jenmoutenot.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:LoyolaCS366SP18/heapier-jenmoutenot.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/ This is my code
 // Jen Moutenot
 // CS 366
 
