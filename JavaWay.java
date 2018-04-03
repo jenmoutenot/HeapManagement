@@ -25,7 +25,7 @@ public class JavaWay
     Byte [][] blocks = new Byte[BLOCK_COUNT][];
 
     int i;
-    for(i=0; i<BLOCK_COUNT; i++)
+    for(i=0; i<BLOCK_COUNT; i++)  
       blocks[i] = null;
   
     for(i=0; i<ITERATIONS; i++)
