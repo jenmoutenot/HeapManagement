@@ -20,18 +20,34 @@
 
 int main()
 {
-  struct sHeap sBlock[BLOCK_COUNT];
   srand(time(NULL));
-  for (int i = 0; i < ITERATIONS; i++)
+  char* blocks[malloc(BLOCK_SIZE)];
+  for (int i = 0; i < BLOCK_COUNT; i++)
   {
-    int num = rand() % BLOCK_COUNT;
-    if(sBlock[num] == NULL)
+    blocks[i] == NULL
+  }
+  for(int i = 0; i < ITERATIONS; i++)
+  {
+    int b = rand() % BLOCK_COUNT;
+    if(blocks[b] == NULL)
     {
-      get_mem();
+      blocks[b] = new Byte[BLOCK_SIZE];
+      if(blocks[b] == NULL)
+      {
+      printf("new returned null at iteration ");
+      return -1;
+      }
     }
     else
     {
-      free_mem();
+      blocks[b] == NULL;
+    }
+  }
+  for (i = 0; i < BLOCK_COUNT; i++)
+  {
+    if(blocks[i] != NULL)
+    {
+      blocks[i] == NULL;
     }
   }
   return 0;
