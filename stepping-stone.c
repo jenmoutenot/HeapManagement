@@ -13,25 +13,27 @@
 // CS 366
 
 #include "stdio.h"
+#include "stdlib.h"
+#include "malloc.h"
 
 #define BLOCK_COUNT 100000
-#define ITERATIONS (300*1000*1000/1000)
+#define ITERATIONS (300*1000*100000/1000)
 #define BLOCK_SIZE 4096
 
 int main()
 {
-  srand(time(NULL));
-  char* blocks[malloc(BLOCK_SIZE)];
-  for (int i = 0; i < BLOCK_COUNT; i++)
+  int i;
+  char *blocks[BLOCK_COUNT] = {0};
+  for (i = 0; i < BLOCK_COUNT; i++)
   {
-    blocks[i] == NULL
+    blocks[i] = NULL;
   }
-  for(int i = 0; i < ITERATIONS; i++)
+  for(i = 0; i < ITERATIONS; i++)
   {
     int b = rand() % BLOCK_COUNT;
     if(blocks[b] == NULL)
     {
-      blocks[b] = new Byte[BLOCK_SIZE];
+      blocks[b] = malloc(BLOCK_SIZE);
       if(blocks[b] == NULL)
       {
       printf("new returned null at iteration ");
@@ -40,14 +42,14 @@ int main()
     }
     else
     {
-      blocks[b] == NULL;
+      blocks[b] = NULL;
     }
   }
   for (i = 0; i < BLOCK_COUNT; i++)
   {
     if(blocks[i] != NULL)
     {
-      blocks[i] == NULL;
+      blocks[i] = NULL;
     }
   }
   return 0;
