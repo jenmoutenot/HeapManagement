@@ -36,7 +36,7 @@ static void *check_malloc(int size)
  * input:   nothing
  * returns: nothing
  */
-tAllocator *initialize_allocator()
+tAllocator *initialize_allocator(int size)
 {
  empty_list->memory = sizeof(struct tAllocator);
  empty_list->flag = 1; 
