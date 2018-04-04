@@ -41,7 +41,7 @@ static void dump_addresses(void *blocks[])
 
 int main()
 {
-#ifdef MYWAY/usr/bin/time -f "$TIME_FORMAT" stepping-stone
+#ifdef MYWAY
   tAllocator *alloc = initialize_allocator(INITIAL_LIST_SIZE);
 #endif 
   int i;
@@ -55,16 +55,22 @@ int main()
     int b = rand() % BLOCK_COUNT;
     if (blocks[b] == NULL)
     {
+      #ifdef MYWAY
+      #else
       blocks[b] = malloc(BLOCK_SIZE);
       if (blocks[b] == NULL)
       {
         printf("new returned null at iteration %d ", i);
-        return -1;
+        exit(-1);
       }
+      #endif
     }
     else
     {
+      #ifdef MYWAY
+      #else
       blocks[b] = NULL;
+      #endif
     }
   }
   for (i = 0; i < BLOCK_COUNT; i++)
@@ -74,19 +80,10 @@ int main()
       blocks[i] = NULL;
     }
   }
+  printf("@ @ blockcount %d iterations %d block size %d \n",
+          BLOCK_COUNT, ITERATIONS, BLOCK_SIZE);
+  #ifdef MYWAY
+  free_allocator(alloc)
+  #endif
   return 0;
 }
-//...
-
-     // blocks[b] = get_mem(BLOCK_SIZE, alloc);
-
-//...
-
- // printf("@@ block_count %d iterations %d block size %d, ", 
-        // BLOCK_COUNT, ITERATIONS, BLOCK_SIZE);
-
- // free_allocator(alloc);
-
-  //return 0;
-//}
-
