@@ -14,7 +14,7 @@ public class JavaWay
   final static int ITERATIONS = (300*1000*1000/1000);
   final static int BLOCK_SIZE = 4096;
 
-  /* purpose: run the experiment timing the random allocation and 
+  /* purpose: run the experiment timing the random allocation and
    *          deallocation of blocks of memory.
    * input:   nothing 
    * returns: nothing
