@@ -83,7 +83,7 @@ tAllocator *my_malloc(int size)
  */
 tAllocator my_free(void* block1)
 {
-  if(block1 <= void* memory)
+  if(block1 < void* memory)
   {
     struct tAllocator* block = block1;
     --block;
