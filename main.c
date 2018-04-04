@@ -58,7 +58,7 @@ int main()
       blocks[b] = malloc(BLOCK_SIZE);
       if (blocks[b] == NULL)
       {
-        printf("new returned null at iteration %d ", &i);
+        printf("new returned null at iteration %d ", i);
         return -1;
       }
     }
