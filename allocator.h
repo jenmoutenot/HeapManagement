@@ -4,18 +4,10 @@
 
 #include "stdio.h"
 #include "stddef.h"
-
-#ifdef MYWAY
-#define get_mem() my_alloc()
-#define free_mem() my_free()
-#define BLOCK_SIZE 8
-#endif
-
-#ifndef MYWAY
-#define get_mem() malloc()
-#define free_mem() free()
-#define BLOCK_SIZE sizeof(struct sBlock)
-#endif
+#include "stdlib.h"
+#include "unistd.h"
+#include "malloc.h"
+#include "memwatch.h"
 
 struct sHeap{
   int size;
@@ -23,6 +15,8 @@ struct sHeap{
   struct sHeap *next;
 };
 
-void initialize();
-void *my_alloc(int size);
-void my_free(void* block1);
+static int max_list_depth_used = 0;
+static void *check_malloc(int size);
+tAllocator *initialize_allocator;
+tAllocator *my_alloc(int size);
+tAllocator my_free(void* block1);
