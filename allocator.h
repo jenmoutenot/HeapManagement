@@ -18,6 +18,6 @@ typedef struct sHeap
 
 static int max_list_depth_used = 0;
 static void *check_malloc(int size);
-tAllocator *initialize_allocator;
+tAllocator *initialize_allocator(int size);
 tAllocator *my_alloc(int size);
 tAllocator my_free(void* block1);
