@@ -44,7 +44,38 @@ int main()
 #ifdef MYWAY/usr/bin/time -f "$TIME_FORMAT" stepping-stone
   tAllocator *alloc = initialize_allocator(INITIAL_STACK_SIZE);
 #endif 
-
+  int i;
+  char *blocks[BLOCK_COUNT] = {0};
+  for (i = 0; i < BLOCK_COUNT; i++)
+  {
+    blocks[i] = NULL;
+  }
+  for (i = 0; i < ITERATIONS; i++)
+  {
+    int b = rand() % BLOCK_COUNT;
+    if (blocks[b] == NULL)
+    {
+      blocks[b] = malloc(BLOCK_SIZE);
+      if (blocks[b] == NULL)
+      {
+        printf("new returned null at iteration %d ", &i);
+        return -1;
+      }
+    }
+    else
+    {
+      blocks[b] = NULL
+    }
+  }
+  for (i = 0; i < BLOCK_COUNT; i++)
+  {
+    if (blocks[i] != NULL)
+    {
+      blocks[i] = NULL;
+    }
+  }
+  return 0;
+}
 ...
 
       blocks[b] = get_mem(BLOCK_SIZE, alloc);
