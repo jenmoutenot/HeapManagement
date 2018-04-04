@@ -9,11 +9,12 @@
 #include "malloc.h"
 #include "memwatch.h"
 
-struct sHeap{
+typedef struct sHeap
+{
   int size;
   int free;
   struct sHeap *next;
-}tAllocator;
+} tAllocator;
 
 static int max_list_depth_used = 0;
 static void *check_malloc(int size);
