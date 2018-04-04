@@ -3,10 +3,10 @@
 // CS 366
 // Some courtesy to Dr. Binkley
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <malloc.h>
+#include "stdio.h"
+#include "stdlib.h"
+#include "unistd.h"
+#include "malloc.h"
 #include "memwatch.h"
 
 #ifdef MYWAY
@@ -17,7 +17,7 @@
 #define ITERATIONS (300*1000*1000)
 #define BLOCK_SIZE 4096
 
-#define INITIAL_STACK_SIZE 1000
+#define INITIAL_LIST_SIZE 1000
 
 #ifdef MYWAY
 #define get_mem(x,A) my_malloc(x, A)
@@ -42,7 +42,8 @@ static void dump_addresses(void *blocks[])
 int main()
 {
 #ifdef MYWAY/usr/bin/time -f "$TIME_FORMAT" stepping-stone
-  tAllocator *alloc = initialize_allocator(INITIAL_STACK_SIZE);
+  sHeap *alloc = initialize_allocator(INITIAL_LIST_SIZE);
+  //tAllocator *alloc = initialize_allocator(INITIAL_STACK_SIZE);
 #endif 
   int i;
   char *blocks[BLOCK_COUNT] = {0};
@@ -64,7 +65,7 @@ int main()
     }
     else
     {
-      blocks[b] = NULL
+      blocks[b] = NULL;
     }
   }
   for (i = 0; i < BLOCK_COUNT; i++)
@@ -76,17 +77,17 @@ int main()
   }
   return 0;
 }
-...
+//...
 
-      blocks[b] = get_mem(BLOCK_SIZE, alloc);
+     // blocks[b] = get_mem(BLOCK_SIZE, alloc);
 
-...
+//...
 
-  printf("@@ block_count %d iterations %d block size %d, ", 
-         BLOCK_COUNT, ITERATIONS, BLOCK_SIZE);
+ // printf("@@ block_count %d iterations %d block size %d, ", 
+        // BLOCK_COUNT, ITERATIONS, BLOCK_SIZE);
 
-  free_allocator(alloc);
+ // free_allocator(alloc);
 
-  return 0;
-}
+  //return 0;
+//}
 
