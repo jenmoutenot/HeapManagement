@@ -13,7 +13,7 @@ struct sHeap{
   int size;
   int free;
   struct sHeap *next;
-};
+}tAllocator;
 
 static int max_list_depth_used = 0;
 static void *check_malloc(int size);
