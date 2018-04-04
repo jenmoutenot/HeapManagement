@@ -17,7 +17,7 @@
 #include "malloc.h"
 
 #define BLOCK_COUNT 100000
-#define ITERATIONS (300*1000*1000/1000)
+#define ITERATIONS (300*1000*1000)
 #define BLOCK_SIZE 4096
 
 int main()
@@ -36,8 +36,10 @@ int main()
       blocks[b] = malloc(BLOCK_SIZE);
       if (blocks[b] == NULL)
       {
-        printf("new returned null at iteration ");
-        return -1;
+        printf("@@ block_count %d iterations %d block size %d ", 
+        BLOCK_COUNT, ITERATIONS, BLOCK_SIZE);
+        printf("new returned null at iteration %d ", i);
+        exit(-1);
       }
     }
     else
