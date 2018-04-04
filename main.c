@@ -83,7 +83,7 @@ int main()
   printf("@ @ blockcount %d iterations %d block size %d \n",
           BLOCK_COUNT, ITERATIONS, BLOCK_SIZE);
   #ifdef MYWAY
-  free_allocator(alloc)
+  free_allocator(alloc);
   #endif
   return 0;
 }
