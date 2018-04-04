@@ -16,14 +16,29 @@ static int max_list_depth_used = 0;
 
 struct tAllocator *empty_list = void* memory;
 
+/* purpose: allocate memory bailing if there is an error
+ * input: the size of the block of memory to allocate
+ * returns: the address of the block
+ */
+static void *check_malloc(int size)
+{
+  void *mem = (void *) malloc(size);
+  if (mem == NULL)
+  {
+    printf("malloc fails bye :( \n");
+    exit(-1);
+  }
+  return mem;
+}
+
 /* purpose: initializes the linked list's memory block
  *          and sets a free flag to 1 
  * input:   nothing
  * returns: nothing
  */
-void initialize()
+tAllocator *initialize()
 {
- empty_list->memory = sizeof(struct sHeap);
+ empty_list->memory = sizeof(struct tAllocator);
  empty_list->flag = 1; 
  empty_list->next = NULL;
 }
@@ -33,10 +48,10 @@ void initialize()
  * input:   size of the memory block
  * returns: nothing
  */
-void *my_malloc(int size)
+tAllocator *my_malloc(int size)
 {
-  struct sHeap *block;
-  struct sHeap *previous; 
+  struct tAllocator *block;
+  struct tAllocator *previous; 
   void *new_block;
   block = empty_list;
 
@@ -50,7 +65,7 @@ void *my_malloc(int size)
     block->flag = 0;
     new_block = void* ++block;
   }
-  else((block->memory) > (sizeof(struct sHeap)))
+  else((block->memory) > (sizeof(struct tAllocator)))
   {
     new_block = void* ++block;
   }
@@ -66,11 +81,11 @@ void *my_malloc(int size)
  * input:   a pointer
  * returns: nothing
  */
-void my_free(void* block1)
+tAllocator my_free(void* block1)
 {
   if(block1 <= void* memory)
   {
-    struct sHeap* block = block1;
+    struct tAllocator* block = block1;
     --block;
     block->flag = 1;
   }
