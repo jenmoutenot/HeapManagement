@@ -28,16 +28,16 @@ int main()
   {
     blocks[i] = NULL;
   }
-  for(i = 0; i < ITERATIONS; i++)
+  for (i = 0; i < ITERATIONS; i++)
   {
     int b = rand() % BLOCK_COUNT;
-    if(blocks[b] == NULL)
+    if (blocks[b] == NULL)
     {
       blocks[b] = malloc(BLOCK_SIZE);
-      if(blocks[b] == NULL)
+      if (blocks[b] == NULL)
       {
-      printf("new returned null at iteration ");
-      return -1;
+        printf("new returned null at iteration ");
+        return -1;
       }
     }
     else
@@ -47,7 +47,7 @@ int main()
   }
   for (i = 0; i < BLOCK_COUNT; i++)
   {
-    if(blocks[i] != NULL)
+    if (blocks[i] != NULL)
     {
       blocks[i] = NULL;
     }
