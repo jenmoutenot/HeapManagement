@@ -3,11 +3,18 @@
 // CS 366
 
 #include "stdio.h"
+#include "stdlib.h"
+#include "unistd.h"
+#include "malloc.h"
 #include "memwatch.h"
 #include "stddef.h"
 #include "allocator.h"
 
-struct sHeap *empty_list = void* memory;
+#define max(a,b) ((a) > (b) ? (a) : (b))
+
+static int max_list_depth_used = 0;
+
+struct tAllocator *empty_list = void* memory;
 
 /* purpose: initializes the linked list's memory block
  *          and sets a free flag to 1 
