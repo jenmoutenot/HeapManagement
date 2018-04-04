@@ -42,8 +42,7 @@ static void dump_addresses(void *blocks[])
 int main()
 {
 #ifdef MYWAY/usr/bin/time -f "$TIME_FORMAT" stepping-stone
-  sHeap *alloc = initialize_allocator(INITIAL_LIST_SIZE);
-  //tAllocator *alloc = initialize_allocator(INITIAL_STACK_SIZE);
+  tAllocator *alloc = initialize_allocator(INITIAL_STACK_SIZE);
 #endif 
   int i;
   char *blocks[BLOCK_COUNT] = {0};
