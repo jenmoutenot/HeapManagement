@@ -3,9 +3,6 @@
 // CS 366
 // Courtesy of Dr. Binkley
 
-// allocation challenge!  assuming that only blocks of a fixed size are
-// allocated, test how java's heap manager "stacks" up.
-
 import java.util.Random;
 
 public class JavaWay
