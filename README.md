@@ -1,5 +1,10 @@
 # asn5 heapier
 
+## Take 2 at Assignment 5:
+1. With the take 2 version of A5, I completed phase 1 and phase 2.
+2. I started phase 3 but got stuck with allocating a fixed size linked list.
+3. Thus, I completed JavaWay.java, stepping-stone.c, and main.c
+
 ## Analysis
 In this assignment we will be exploring 3 different heap management options.
 We will see which one is the most efficient by comparing CPU time and wall-clock time
